@@ -4,11 +4,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-const passport = require('passport');
-const session = require('express-session');
 
 const routes = require('./routes');
-const config = require('./config');
+const config = require('./config/config');
 
 const app = express();
 
@@ -32,7 +30,7 @@ app.use('/components', express.static(path.join(__dirname, 'bower_components')))
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app route
-app.use('',routes.indexRoute);
+app.use('/',routes.indexRoute);
 app.use('/users',routes.userRoute);
 
 

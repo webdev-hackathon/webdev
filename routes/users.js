@@ -8,52 +8,32 @@ const flash = require('connect-flash');
 
 const userController = require('../controllers/users');
 const userModel = require('../models/users');
+const config = require('../config/config');
 
-router.use(session({ secret: "aaaaaaaaa" }));
+
+
+router.use(session({ secret: config.secret,resave:true }));
 router.use(passport.initialize());
 router.use(passport.session());
 router.use(flash());
-
+require('../config/passport')();
 router.get('/', (req, res) => {
-  res.send("Hello, you are in users/");
+  res.render('index',{
+    title:'Trang chủ | Kỳ thi Hương Quốc Gia',
+    isLoggin:req.isAuthenticated()
+  });
 });
 
 router.route('/login')
   .get(userController.login)
-  .post(userController.login,passport.authenticate('local-login', { failureRedirect: '/users/login', successRedirect: '/users' }));
+  .post(userController.login,passport.authenticate('local-login', { failureRedirect: '/users/login', successRedirect: '/users',failureFlash:true }));
 
 router.route('/signup')
   .get(userController.signup)
-  .post(userController.signup);
+  .post(userController.isLoggin,userController.signup);
 
-passport.use('local-login',new LocalStrategy(
-  {passReqToCallback:true},
-  (req,username, password, done) => {
-    userModel.findOne({ username: username })
-      .then(user => {
-        if (user) {
-          const isMatch = bcrypt.compareSync(password,user.password);
-          if (isMatch)
-            done(null, user,req.flash('loginMsg','Login successfully'));
-          else done(null,false,req.flash('loginMsg','Password is invalid'));
-        } 
-        else return done(null, false,req.flash('loginMsg','Username is invalid'));
-      })
-      .catch(error => {
-        console.log("Error when find User , passport use localStrategy " + error);
-        done(error);
-    });
-  }
-))
-passport.serializeUser((user, done) => {
-  console.log("user in passport Local " + user);
-  return done(null, user.id);
-});
-passport.deserializeUser((username, done) => {
-  userModel.findOne({ username: username })
-    .then(user => {
-      if (user) return done(null, user);
-      else return done(null, false);
-    })
-})
+router.post('/logout',userController.isLoggin,userController.logout);
+router.route('/choose-exam/')
+  .get(userController.isLoggin, userController.chooseExam);
+router.get('/exam/:eid',userController.isLoggin,userController.exam);
 module.exports = router;
