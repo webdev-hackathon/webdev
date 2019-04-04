@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<%- include ../partials/head %>
+<link rel="stylesheet" href="/components/bootstrap-4.3.1-dist/css/bootstrap-grid.css" >
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link rel="stylesheet" href="/styles/styles.css">
+</head>
+
+<body>
+    <header class="wraper-bg">
+        <!--Desktop Nav bar-->
+        <nav class="nav-desktop ">
+            <div class="container">
+                <div class="logo-area">
+                    <a href="./index.html">
+                        <div class="logo">
+                            <img src="/img/resources/logo.png" alt="">
+                        </div>
+                        <div class="web-name noselect">
+                            Kỳ thi Hương Quốc gia
+                        </div>
+                    </a>
+                </div>
+                <div class="menu-bar noselect">
+                    <ul class="main-nav ">
+                        <li>
+                            <a class="main-nav__home img-rounded" href="./index.html">Home</a>
+                        </li>
+                        <li>
+                            <a class="main-nav__exam img-rounded" href="./select-exam.html">Vào thi</a>
+                        </li>
+                        <li>
+                            <a class="main-nav__rank img-rounded" href="/index.html#golden-rank"> Rank</a>
+                        </li>
+                        <li>
+                            <a class="main-nav__lib img-rounded" href="#">Thư viện</a>
+                        </li>
+                        <li>
+                            <a class="main-nav__event img-rounded" href="#"> Sự kiện</a>
+                        </li>
+
+                        <li>
+                            <a class="main-nav__contact img-rounded " href="#">Liên hệ</a>
+                        </li>
+                    </ul>
+                    <ul id="mySidenav" class="main-nav-mob">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <li>
+                            <a class="main-nav__home img-rounded" href="./index.html">Home</a>
+                        </li>
+                        <li>
+                            <a class="main-nav__exam img-rounded" href="./select-exam.html">Vào thi</a>
+                        </li>
+                        <li>
+                            <a class="main-nav__rank img-rounded" href="/index.html#golden-rank"> Rank</a>
+                        </li>
+                        <li>
+                            <a class="main-nav__lib img-rounded" href="#">Thư viện</a>
+                        </li>
+                        <li>
+                            <a class="main-nav__event img-rounded" href="#"> Sự kiện</a>
+                        </li>
+
+                        <li>
+                            <a class="main-nav__contact img-rounded " href="#">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="btn-open-menu" class="btn-menu">
+                    <img src="/img/icons/three-dot-menu.png">
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- div maker -->
+    <main class="wraper-bg">
+        <div class="div-outer">
+            <div class="container outer-wraper outer-wraper-100vh justify-content-center">
+                <div class="row">
+                    <div class="col-lg-12 login-wraper">
+                        <div class="nb-card login-form">
+                            <div class="nb-card-head">
+                                <h3>Đăng ký</h3>
+                            </div>
+                            <div class="nb-card-body">
+                                <form action="/users/signup" method="POST">
+                                    <input type="text" name="fullname" class="normal-input" placeholder="Họ và Tên" required>
+                                    <input type="text" name="email" class="normal-input" placeholder="Email" required>
+                                    <input type="text" name="username" class="normal-input" placeholder="tài khoản" required>
+                                    <input type="password" name="password" class="normal-input" placeholder="mật khẩu" required>
+                                    <input type="password" name="password2" class="normal-input" placeholder="Gõ lại mật khẩu" required>
+                                    <input type="submit" value="Đăng ký ngay" />
+                                </form>
+                            </div>
+                            <div class="nb-card-foot">
+                                <div>Đã có tài khoản? <a href='login'>Đăng nhập</a></div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer  -->
+
+    <footer>
+        <%- include ../partials/footer %>
+    </footer>
+
+    <!-- Some Scripts -->
+    <script src="/components/jquery/dist/jquery.min.js"></script>
+
+    <script src="/js/navigation.js">
+    </script>
+</body>
+
+</html>
