@@ -62,8 +62,8 @@ li {
 
 nav {
     /* background: rgba(255,255,255,0.8); */
-    /* background: rgba(0,0,0,0.8); */
-    background: #232323;
+    background: rgba(0,0,0,0);
+    /* background: #232323; */
 
     /* position: fixed; */
     width: 100%;
@@ -134,7 +134,7 @@ nav .menu-bar {
 }
 
 .menu-bar li a {
-    font-family: 'thuphap1';
+    /* font-family: 'thuphap1'; */
     padding: 5px 15px;
     text-transform: uppercase;
     text-decoration: none;
@@ -146,7 +146,7 @@ nav .menu-bar {
 }
 
 .menu-bar li a:hover {
-    background-image: url('../img/resources/box.png');
+    /* background-image: url('../img/resources/box.png'); */
     /* background: rgba(223, 158, 18, 0.815); */
     color: red;
     transition: .5s;
@@ -183,11 +183,26 @@ nav .menu-bar {
     position: relative;
 }
 
+.wraper-bg::before {
+    content: '';
+    background-image:  linear-gradient(to bottom right,rgba(0,47,75,0.7),rgba(220,66,37,0.7));
+    content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: .8; 
+}
+
 .wraper-bg {
-    background-image:  linear-gradient(to bottom right,rgba(0,47,75,0.7),rgba(220,66,37,0.7)), url('../img/backgrounds-wraper/bg-01-khue-van-cac-3.jpg');
+    background: url('../img/backgrounds-wraper/bg-02-hoa-sen.jpg') no-repeat 50% 50%;
     background-position: center center;
     /* transition: background-image 1000ms linear infinite; */
     background-size: cover;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 #wraper-animation {
@@ -225,6 +240,7 @@ nav .menu-bar {
 
 .outer-wraper {
     height: 360px;
+    /* height: calc(100vh - 300px); */
     display: flex;
     position: relative;
     justify-content: flex-end;
@@ -277,7 +293,7 @@ nav .menu-bar {
 /* --- main header --- */
 
 .desktop-nav-wraper {
-    background: url('../img/old-page-bg.jpg') top center no-repeat;
+    /* background: url('../img/old-page-bg.jpg') top center no-repeat; */
     height: 100%;
     display: block;
     width: 100%;
@@ -509,8 +525,8 @@ nav .menu-bar {
     border-radius: 20px;
 }
 
-.my-result table {
-}
+/* .my-result table {
+} */
 
 .my-result table tr {
     border-bottom: 10px solid tomato;

@@ -5,10 +5,10 @@ $(document).ready(() =>{
     var pic2 = new Image();
     var pic3 = new Image();
     var pic4 = new Image();
-    pic.src="./img/backgrounds-wraper/bg-02-hoa-sen.jpg";
-    pic2.src="./img/backgrounds-wraper/bia1_QBQI.jpg";
-    pic3.src="./img/backgrounds-wraper/hoang-thanh-thang-long-04.jpg";
-    pic4.src= "./img/backgrounds-wraper/bg-01-khue-van-cac-3.jpg";
+    pic.src="../img/backgrounds-wraper/bg-02-hoa-sen.jpg";
+    pic2.src="../img/backgrounds-wraper/bia1_QBQI.jpg";
+    pic3.src="../img/backgrounds-wraper/hoang-thanh-thang-long-04.jpg";
+    pic4.src= "../img/backgrounds-wraper/bg-01-khue-van-cac-3.jpg";
     const picArr = [pic, pic2, pic3, pic4];
 
     console.log(pic);
@@ -32,7 +32,7 @@ $(document).ready(() =>{
 
 
 function changeBg(num ,picArr, linearCode, sizeAndPosition){
-    $('#wraper-animation').css("background", `${linearCode}, url(${picArr[num].src}) ${sizeAndPosition[num]}`);
+    $('#wraper-animation').css("background", `url(${picArr[num].src}) ${sizeAndPosition[num]}`);
     $('#wraper-animation').css("background-size", `cover`);
 
 }
