@@ -2,7 +2,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 const userModel = require('../models/users');
-
+const adminModel = require('../models/admin');
 module.exports = () => {
     passport.use('local-login', new LocalStrategy(
         { passReqToCallback: true },
@@ -49,7 +49,28 @@ module.exports = () => {
                             });
                     }
                 })
-        }))
+        }));
+    passport.use('local-login-admin', new LocalStrategy(
+        { passReqToCallback: true },
+        (req, username, password, done) => {
+            adminModel.findOne({ admin: username })
+                .then(admin => {
+
+                    if (admin) {
+                        const isMatch = bcrypt.compareSync(password, admin.password);
+                        if (isMatch) {
+                            done(null, admin);
+                            console.log("Is authenticated? passport "+req.isAuthenticated());
+                        }
+                        else done(null, false, req.flash('loginMsg', 'Password is invalid'));
+                    }
+                    else done(null, false, req.flash('loginMsg', 'Username is invalid'));
+                })
+                .catch(error => {
+                    done(error);
+                });
+        }
+    ));
     passport.serializeUser((user, done) => {
         done(null, user.id);
     });
@@ -57,7 +78,13 @@ module.exports = () => {
         userModel.findById(id)
             .then(user => {
                 if (user) done(null, user);
-                else done(null, false);
+                else return adminModel.findById(id);
             })
-    })
+            .then(admin=>{
+                if (admin) done(null,admin);
+                else done(null,false);
+            })
+            .catch(err => {throw err});
+    });
+
 }
