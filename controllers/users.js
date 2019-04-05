@@ -24,23 +24,27 @@ module.exports = {
             if (req.isAuthenticated()) {
                 res.redirect('/');
             }
-            else res.render('pages/signup', { title: 'Đăng ký tài khoản' });
+            else res.render('pages/signup', { 
+                title: 'Đăng ký tài khoản' ,
+                isLoggin:req.isAuthenticated()
+            });
         }
         else if (req.method == "POST") {
-            const salt = bcrypt.genSaltSync(10);
-            const passHash = bcrypt.hashSync(req.body.password, salt);
-            const user = {
-                username: req.body.username,
-                password: passHash,
-                fullname: req.body.fullname,
-                email: req.body.email,
-            }
-            userModel.create(user)
-                .then(user => {
-                    console.log("Create user at Register controller " + user);
-                    res.redirect('/');
-                })
-                .catch(err => console.log(err));
+            // const salt = bcrypt.genSaltSync(10);
+            // const passHash = bcrypt.hashSync(req.body.password, salt);
+            // const user = {
+            //     username: req.body.username,
+            //     password: passHash,
+            //     fullname: req.body.fullname,
+            //     email: req.body.email,
+            // }
+            // userModel.create(user)
+            //     .then(user => {
+            //         console.log("Create user at Register controller " + user);
+            //         res.redirect('/');
+            //     })
+            //     .catch(err => console.log(err));
+            next();
 
         }
     },
@@ -53,41 +57,41 @@ module.exports = {
             // lấy hết mã đề có trong DB đổ ra page
             const listExams = [
                 {
-                    eid:"125",
-                    question:40,
+                    eid: "125",
+                    question: 40,
                 },
                 {
-                    eid:"146",
-                    question:25,
+                    eid: "146",
+                    question: 25,
                 },
                 {
-                    eid:"345",
-                    question:40,
+                    eid: "345",
+                    question: 40,
                 },
                 {
-                    eid:"567",
-                    question:25,
+                    eid: "567",
+                    question: 25,
                 },
                 {
-                    eid:"128",
-                    question:40,
+                    eid: "128",
+                    question: 40,
                 },
                 {
-                    eid:"465",
-                    question:25,
+                    eid: "465",
+                    question: 25,
                 },
-        ]
+            ]
             res.render('pages/select-exam', {
                 title: 'Chọn đề thi',
                 isLoggin: req.isAuthenticated(),
-                listExams:listExams
+                listExams: listExams
             });
         }
     },
     exam: (req, res) => {
         if (req.method == "GET") {
             const examId = req.params.eid; // mã đề 
-            console.log("Choose exam code : "+examId);
+            console.log("Choose exam code : " + examId);
             // query đề thi thông qua mã đề thi
             //return object chứa các câu hỏi của đề.
             const questions = [
