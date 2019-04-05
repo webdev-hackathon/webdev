@@ -4,8 +4,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-
+const session = require('express-session');
 const routes = require('./routes');
+const passport = require('passport');
+const flash = require('connect-flash');
 const config = require('./config/config');
 
 const app = express();
@@ -32,6 +34,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/components', express.static(path.join(__dirname, 'bower_components')));
 
+app.use(session({ secret: config.secret, resave: true,saveUninitialized:true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app route
