@@ -2,19 +2,28 @@ const userModel = require('../models/users');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+function findUserbyId(id){
+   userModel.findById(id,(err,user)=>{
+       if (user) return user;
+       else return {};
+   })
+}
 module.exports = {
     login: (req, res, next) => {
         if (req.method == "GET") {
             if (req.isAuthenticated()) {
                 res.redirect('/');
             }
-            else
+            else{
                 res.render('pages/login', {
                     title: 'Đăng nhập',
                     message: req.flash(),
-                    isLoggin: req.isAuthenticated()
-                });
-        }
+                    isLogged: req.isAuthenticated(),
+                    user: req.isAuthenticated()?findUserbyId(req.user.id):{}
+                });  
+            }
+                
+        } 
         else if (req.method == "POST") {
             next();
         }
@@ -26,24 +35,11 @@ module.exports = {
             }
             else res.render('pages/signup', { 
                 title: 'Đăng ký tài khoản' ,
-                isLoggin:req.isAuthenticated()
+                isLogged:req.isAuthenticated(),
+                user: req.isAuthenticated()?findUserbyId(req.user.id):{}
             });
         }
         else if (req.method == "POST") {
-            // const salt = bcrypt.genSaltSync(10);
-            // const passHash = bcrypt.hashSync(req.body.password, salt);
-            // const user = {
-            //     username: req.body.username,
-            //     password: passHash,
-            //     fullname: req.body.fullname,
-            //     email: req.body.email,
-            // }
-            // userModel.create(user)
-            //     .then(user => {
-            //         console.log("Create user at Register controller " + user);
-            //         res.redirect('/');
-            //     })
-            //     .catch(err => console.log(err));
             next();
 
         }
@@ -83,8 +79,9 @@ module.exports = {
             ]
             res.render('pages/select-exam', {
                 title: 'Chọn đề thi',
-                isLoggin: req.isAuthenticated(),
-                listExams: listExams
+                isLogged: req.isAuthenticated(),
+                listExams: listExams,
+                user: req.isAuthenticated()?findUserbyId(req.user.id):{}
             });
         }
     },
@@ -120,13 +117,14 @@ module.exports = {
             ]
             res.render('pages/exam', {
                 title: 'Làm bài thi',
-                isLoggin: req.isAuthenticated(),
-                examQuestions: questions
+                isLogged: req.isAuthenticated(),
+                examQuestions: questions,
+                user: req.isAuthenticated()?findUserbyId(req.user.id):{}
             });
         }
     },
-    isLoggin: (req, res, next) => {
-        console.log("Req isAuth in userController/isLoggin : " + req.isAuthenticated());
+    isLogged: (req, res, next) => {
+        console.log("Req isAuth in userController/isLogged : " + req.isAuthenticated());
         if (req.isAuthenticated()) {
             next();
         }

@@ -4,5 +4,6 @@
 // }
 
 module.exports = {
-    "uri" : "mongodb+srv://super-admin:admin123@wevdevhackathon-vkc9k.mongodb.net/test?retryWrites=true"
+    uri : "mongodb+srv://super-admin:admin123@wevdevhackathon-vkc9k.mongodb.net/test?retryWrites=true",
+    secret:"sUp3r S3cr3tt"
 }

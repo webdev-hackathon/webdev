@@ -13,10 +13,10 @@
                 <div class="menu-bar noselect">
                     <ul class="main-nav ">
                         <li>
-                            <a class="main-nav__home img-rounded" href="./">Home</a>
+                            <a class="main-nav__home img-rounded" href="/">Home</a>
                         </li>
                         <li>
-                            <a class="main-nav__exam img-rounded" href="./select-exam.html">Vào thi</a>
+                            <a class="main-nav__exam img-rounded" href="/users/choose-exam">Vào thi</a>
                         </li>
                         <li>
                             <a class="main-nav__rank img-rounded" href="/#golden-rank">Bảng vàng</a>
@@ -31,17 +31,22 @@
                         <li>
                             <a class="main-nav__contact img-rounded " href="#">Liên hệ</a>
                         </li>
-                        <% if (isLogin){ %>
+                        <% if (isLogged){ %>
                         <li>
                             <div class="avt">
                                 <div class="img-wraper">
                                     <img src="/img/user/icons8-customer-64.png" />
                                 </div>
+                                
                             </div>
+                        </li>
+                        <li>
+                            <span> <%= user.fullname %> </span>
+                            <a href="/users/logout"> Đăng Xuất </a>
                         </li>
                         <% } else {%>
                         <li>
-                            <a class="main-nav__contact img-rounded " href="#">Đăng nhập</a>
+                            <a class="main-nav__contact img-rounded " href="/users/login">Đăng nhập</a>
                         </li>
                         <% } %>
                     </ul>

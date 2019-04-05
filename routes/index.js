@@ -5,7 +5,8 @@ router.get('/', function(req, res, next) {
   console.log(req.isAuthenticated());
   res.render('index', { 
     title: 'Kỳ Thi Hương Quốc Gia' ,
-    isLoggin: req.isAuthenticated()
+    isLogged: req.isAuthenticated(),
+    user:req.user,
   });
 });
 
