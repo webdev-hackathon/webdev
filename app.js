@@ -16,10 +16,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // connect db
-mongoose.connect(config.uri,{useNewUrlParser:true},(err,db)=>{
-  if (!err) console.log("Connected with MongoDB");
-  else throw new "Error when connect db";
+
+mongoose.connect(config.uri,{useNewUrlParser:true})
+.then(() => {
+  console.log("Connected to database!");
 })
+.catch((error) => {
+  console.log("Connection failed!");
+  console.log(error);
+});
 
 app.use(logger('dev'));
 app.use(express.json());
