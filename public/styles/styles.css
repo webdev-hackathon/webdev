@@ -200,7 +200,7 @@ nav .menu-bar {
 }
 
 .wraper-bg {
-    background: url('../img/backgrounds-wraper/bg-02-hoa-sen.jpg') no-repeat 50% 50%;
+    background: url('../img/backgrounds-wraper/bg-01-khue-van-cac-3.jpg') no-repeat 50% 50%;
     background-position: center center;
     /* transition: background-image 1000ms linear infinite; */
     background-size: cover;
@@ -223,7 +223,7 @@ nav .menu-bar {
         background-position: 0 0; 
     }
     to { 
-        background-position: 0 100;
+        background-position: 0 10;
     }
 
 
