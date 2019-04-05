@@ -2,97 +2,21 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%- include ../partials/head%>
 
-    <meta http-equiv="content-language" content="vi" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Trang web chính thức của kỳ thi Hương">
-    <meta name="keywords"
-        content="thi hương, kỳ thi hương, thi hương thời lê, thi trắc nghiệm, bảng vàng, đỗ đạt, làm quan, hiền tài là nguyên khí quốc gia, hiền tài, Lê Đại Hành, thi quoc gia, hien tai la nguyen khi quoc gia, thi, thi huong, nha le, ky thi huong">
-    <meta name="revisit-after" content="1 days" />
-    <meta name="robots" content="noodp,index,follow" />
-    <meta name="google-site-verification" content="hLKr7AIG0s_bxOvFV534GESJnOVFfBtZbyoz8yid97Q" />
-
-    <title>Chọn đề | Kỳ thi Hương Quốc gia</title>
-
-    <link href="./assets/icons/logo.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" href="./bower_components/bootstrap-4.3.1-dist/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="./assets/styles/styles.css">
-
-    <link rel="stylesheet" href="./assets/styles/exam.css">
+    <link rel="stylesheet" href="/components/bootstrap-4.3.1-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/partials.css">
+    <link rel="stylesheet" href="/styles/exam.css">
 
 </head>
 
 <body>
     <!-- div maker -->
-    <header>
-        <!--Desktop Nav bar-->
-        <nav class="nav-desktop ">
-            <div class="container">
-                <div class="logo-area">
-                    <a href="./index.html">
-                        <div class="logo">
-                            <img src="./assets/img/resources/logo.png" alt="">
-                        </div>
-                        <div class="web-name noselect">
-                            Kỳ thi Hương Quốc gia
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-bar noselect">
-                    <ul class="main-nav ">
-                        <li>
-                            <a class="main-nav__home img-rounded" href="./index.html">Home</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__exam img-rounded" href="./select-exam.html">Vào thi</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__rank img-rounded" href="/index.html#golden-rank"> Rank</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__lib img-rounded" href="#">Thư viện</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__event img-rounded" href="#"> Sự kiện</a>
-                        </li>
-
-                        <li>
-                            <a class="main-nav__contact img-rounded " href="#">Liên hệ</a>
-                        </li>
-                    </ul>
-                    <ul id="mySidenav" class="main-nav-mob">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <li>
-                            <a class="main-nav__home img-rounded" href="./index.html">Home</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__exam img-rounded" href="./select-exam.html">Vào thi</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__rank img-rounded" href="/index.html#golden-rank"> Rank</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__lib img-rounded" href="#">Thư viện</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__event img-rounded" href="#"> Sự kiện</a>
-                        </li>
-
-                        <li>
-                            <a class="main-nav__contact img-rounded " href="#">Liên hệ</a>
-                        </li>
-                    </ul>
-                </div>
-                <div id="btn-open-menu" class="btn-menu">
-                    <img src="./assets/icons/three-dot-menu.png">
-                </div>
-            </div>
-        </nav>
-    </header>
+    <nav  class="nav-desktop">
+    <%- include ../partials/header %>
+    </nav>
     <main class="container main-select-exam">
         <div class="row">
             <div class="col-12">
@@ -101,7 +25,7 @@
                         <div class="avt-name">
                             <div class="avt">
                                 <div class="img-wraper">
-                                    <img src="./assets/img/user/icons8-customer-64.png" />
+                                    <img src="/img/user/icons8-customer-64.png" />
                                 </div>
                             </div>
                             <div class="name-info ">
@@ -150,142 +74,25 @@
             <section class="select-test col-lg-12">
                 <h3> <span class="note">Chú ý:</span> Thí sinh <strong>chỉ</strong> được chọn 1 đề thi bên dưới</h3>
                 <ul>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>123</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>342</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>251</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>324</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>485</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>512</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>642</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>701</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>888</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>894</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>921</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>921</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>921</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>921</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>921</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>921</strong>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./exam.html">
-                            <div class="nb-card select-exam">
-                                Mã đề <strong>921</strong>
-                            </div>
-                        </a>
-                    </li>
+                <% listExams.forEach(exam => {%>
+                <li>
+                    <a href="/users/exam/<%= exam.eid %>">
+                        <div class="nb-card select-exam">
+                            Mã đề <strong><%= exam.eid %></strong>
+                        </div>
+                    </a>
+                </li>
+                <%})%>
                 </ul>
             </section>
         </div>
     </main>
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 copyright">
-                    <h4>&copy; Kỳ thi Hương Quốc gia</h4>
-                    <p>Designed by thinhnnd and pxt</p>
-                </div>
-            </div>
-        </div>
+        <%- include ../partials/footer%>
     </footer>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/components/jquery/dist/jquery.min.js"></script>
 
-    <script src="./assets/js/navigation.js">
+    <script src="/js/navigation.js">
     </script>
 </body>
 

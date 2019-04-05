@@ -9,71 +9,9 @@
 </head>
 
 <body>
-    <header class="wraper-bg">
-        <!--Desktop Nav bar-->
-        <nav class="nav-desktop ">
-            <div class="container">
-                <div class="logo-area">
-                    <a href="./index.html">
-                        <div class="logo">
-                            <img src="/img/resources/logo.png" alt="">
-                        </div>
-                        <div class="web-name noselect">
-                            Kỳ thi Hương Quốc gia
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-bar noselect">
-                    <ul class="main-nav ">
-                        <li>
-                            <a class="main-nav__home img-rounded" href="./index.html">Home</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__exam img-rounded" href="./select-exam.html">Vào thi</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__rank img-rounded" href="/index.html#golden-rank"> Rank</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__lib img-rounded" href="#">Thư viện</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__event img-rounded" href="#"> Sự kiện</a>
-                        </li>
-
-                        <li>
-                            <a class="main-nav__contact img-rounded " href="#">Liên hệ</a>
-                        </li>
-                    </ul>
-                    <ul id="mySidenav" class="main-nav-mob">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <li>
-                            <a class="main-nav__home img-rounded" href="./index.html">Home</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__exam img-rounded" href="./select-exam.html">Vào thi</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__rank img-rounded" href="/index.html#golden-rank"> Rank</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__lib img-rounded" href="#">Thư viện</a>
-                        </li>
-                        <li>
-                            <a class="main-nav__event img-rounded" href="#"> Sự kiện</a>
-                        </li>
-
-                        <li>
-                            <a class="main-nav__contact img-rounded " href="#">Liên hệ</a>
-                        </li>
-                    </ul>
-                </div>
-                <div id="btn-open-menu" class="btn-menu">
-                    <img src="/img/icons/three-dot-menu.png">
-                </div>
-            </div>
-        </nav>
-    </header>
+    <nav  class="nav-desktop">
+    <%- include ../partials/header %>
+    </nav>
     <!-- div maker -->
     <main class="wraper-bg">
         <div class="div-outer">
