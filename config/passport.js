@@ -18,11 +18,38 @@ module.exports = () => {
                     else done(null, false, req.flash('loginMsg', 'Username is invalid'));
                 })
                 .catch(error => {
-                    console.log("Error when find User , passport use localStrategy " + error);
                     done(error);
                 });
         }
-    ))
+    ));
+    passport.use('local-signup', new LocalStrategy(
+        { passReqToCallback: true },
+        (req, username, password, done) => {
+            userModel.findOne({ username: username })
+                .then(user => {
+                    if (user) done(null, false, req.flash('signupMsg', 'Username has been existed'));
+                    else {
+                        const salt = bcrypt.genSaltSync(10);
+                        const passHash = bcrypt.hashSync(password, salt)
+                        const newUserData = {
+                            username: username,
+                            password: passHash,
+                            email: req.body.email,
+                            fullname: req.body.fullname
+                        }
+                        userModel.create(newUserData)
+                            .then(newUser => {
+                                console.log("user created :" + newUser);
+                                if (newUser) done(null, newUser, req.flash('signupMsg', 'Signup successs'));
+                                else done(null, false);
+                            })
+                            .catch(err => {
+                                console.log('error at passport.js/local-signup' + err);
+                                done(err);
+                            });
+                    }
+                })
+        }))
     passport.serializeUser((user, done) => {
         done(null, user.id);
     });
