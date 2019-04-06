@@ -5,16 +5,17 @@ module.exports = {
     apiCreateExam: (req, res) => {
         const examData = {
             eid: req.body.eid,
-            ename: req.body.name,
-            edescription: req.body.desc,
-            estatus: req.body.status,
-            eqtyQuestion: req.body.qty,
-            elevel: req.body.level
+            ename: req.body.ename,
+            edescription: req.body.edescription,
+            estatus: req.body.estatus,
+            eqtyQuestion: req.body.eqtyQuestion,
+            elevel: req.body.elevel
         };
+        console.log(examData);
         examModel.findOne({ eid: examData.eid })
             .then(existExam => {
                 if (existExam)
-                    throw new "Mã đề này đã tồn tại";
+                    return res.send({err:"Mã đề này đã tồn tại"});
                 else return examModel.create(examData);
             })
             .then(newExam => {

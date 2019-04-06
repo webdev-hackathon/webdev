@@ -50,7 +50,7 @@
                     <i class="fas fa-edit"></i>
                 </button>
                 <button class="item" id="delete" data-toggle="tooltip"
-                    data-placement="top" onclick="deleteExam("${exam.eid}")" title="Delete">
+                    data-placement="top" onclick="deleteExam('${exam.eid}')" title="Delete">
                     <i class="fas fa-trash-alt"></i>
                 </button>
             </div>
@@ -69,7 +69,7 @@
 })(jQuery);
 function deleteExam(eid){
     $.ajax({
-        url:"http://localhost:3000/api/delete/"+eid,
+        url:"http://localhost:3000/api/delete/" + eid,
         method:"delete",
         success:(res)=>{
             alert("Delete success");
