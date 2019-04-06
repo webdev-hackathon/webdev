@@ -78,11 +78,11 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Tổng quan</h5>
+                                    <h5>Thêm câu hỏi</h5>
                                 </div>
                                 <div class="card-body" style="background-color: #F2E7D3">
                                     <div id="question-place" class="container-fluid">
-                                        <h1> <%=eid%> </h1>
+                                        <h1> <%=eid%></h1>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button class="btn btn-primary">Lưu đề</button>
+                            <button class="btn btn-primary" id="saveBtn">Lưu đề</button>
                         </div>
                     </div>
                    
@@ -102,8 +102,8 @@
     <script src="/components/jquery/dist/jquery.min.js"></script>
     <script src="components/bootstrap-4.1/bootstrap.min.js"></script>
     
-    <script src="/js/question.js"></script>
-    <script >window.onload = addQuestion("<%=eid%>")</script>
+    <script src="/js/question.js"> </script>
+    <script >window.onload = addQuestion( '<%= eid %>',  <%=qtyQuestion %> )</script>
     <script src="/js/web-adminjs.js"></script>
 </body>
 <footer>
