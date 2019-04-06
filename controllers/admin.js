@@ -36,5 +36,17 @@ module.exports = {
                 admin: req.isAuthenticated() ? findUserbyId(req.user.admin) : {}
             })
         }
+    },
+    addExam:(req,res,next)=>{
+        if (req.method == "GET"){
+            res.render('admin/exam-management');
+        }
+        else next();
+    },
+    addQuestion:(req,res,next)=>{
+        if (req.method == "GET"){
+            res.render('admin/add-question');
+        }
+        else next();
     }
 }

@@ -11,7 +11,12 @@ router.route('/login')
     .post(adminController.login, passport.authenticate('local-login-admin', { failureRedirect: '/admin/login', successRedirect: '/admin', failureFlash: true }))
 
 // router.get('/dashboard', adminController.dashboard);
-router.get('/',adminController.isLogged, adminController.dashboard);
+router.get('/', adminController.isLogged, adminController.dashboard);
+router.route('/addExam')
+    .get(adminController.isLogged, adminController.addExam);
+router.route('/addQuestion')
+    .get(adminController.isLogged, adminController.addQuestion);
+
 // do not uncomment ,only use for create admin account
 // router.route('/signup')
 //     .get((req,res)=>{

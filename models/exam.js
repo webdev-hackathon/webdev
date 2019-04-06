@@ -5,6 +5,7 @@ const examSchema = mongoose.Schema({
     edescription:String,
     ecreated:{type:Date,default:Date.now},
     estatus:Boolean,//true : approved, false:denied
-    eqtyQuestion:Number,//số lượng câu hỏi
+    eqtyQuestion:Number,//số lượng câu hỏi,
+    elevel:{type:String,default:"Trung Bình"},
 });
 module.exports = mongoose.model('exam',examSchema);
