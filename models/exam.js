@@ -4,7 +4,7 @@ const examSchema = mongoose.Schema({
     ename:String,
     edescription:String,
     ecreated:{type:Date,default:Date.now},
-    estatus:Boolean,//true : approved, false:denied
+    estatus:{type:Boolean,default:true},//true : approved, false:denied
     eqtyQuestion:Number,//số lượng câu hỏi,
     elevel:{type:String,default:"Trung Bình"},
 });

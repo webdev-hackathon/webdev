@@ -8,7 +8,7 @@ module.exports = {
             edescription: req.body.desc,
             estatus: req.body.status,
             eqtyQuestion: req.body.qty,
-            elevel:req.body.level
+            elevel: req.body.level
         };
         examModel.findOne({ eid: examData.eid })
             .then(existExam => {
@@ -27,6 +27,16 @@ module.exports = {
     apiReadExam: (req, res) => {
         const eid = req.params.eid || "";
         examModel.find({ eid: eid })
+            .then(exam => {
+                if (exam) return res.send({ exams: exam, success: true });
+                else throw new "Error when read db, check syntax or connection";
+            })
+            .catch(err => {
+                return res.send({ error: err, success: false });
+            })
+    },
+    apiReadAllExam: (req, res) => {
+        examModel.find({})
             .then(exam => {
                 if (exam) return res.send({ exams: exam, success: true });
                 else throw new "Error when read db, check syntax or connection";
