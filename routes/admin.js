@@ -14,7 +14,7 @@ router.route('/login')
 router.get('/', adminController.isLogged, adminController.dashboard);
 router.route('/addExam')
     .get(adminController.isLogged, adminController.addExam);
-router.route('/addQuestion')
+router.route('/addQuestion/:eid&:qtyQuestion')
     .get(adminController.isLogged, adminController.addQuestion);
 
 // do not uncomment ,only use for create admin account

@@ -60,7 +60,7 @@ module.exports = () => {
                         const isMatch = bcrypt.compareSync(password, admin.password);
                         if (isMatch) {
                             done(null, admin);
-                            console.log("Is authenticated? passport "+req.isAuthenticated());
+                            console.log("Is authenticated? passport " + req.isAuthenticated());
                         }
                         else done(null, false, req.flash('loginMsg', 'Password is invalid'));
                     }
@@ -77,14 +77,17 @@ module.exports = () => {
     passport.deserializeUser((id, done) => {
         userModel.findById(id)
             .then(user => {
-                if (user) done(null, user);
-                else return adminModel.findById(id);
+                console.log(user);
+                if (user) return done(null, user);
+                else {
+                    console.log("return admin");
+                    adminModel.findById(id)
+                        .then(admin => {
+                            if (admin) return done(null, admin);
+                            else return done(null, false);
+                        })
+                }
             })
-            .then(admin=>{
-                if (admin) done(null,admin);
-                else done(null,false);
-            })
-            .catch(err => {throw err});
+            .catch(err => { return done(err) });
     });
-
 }

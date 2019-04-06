@@ -1,4 +1,6 @@
 const userModel = require('../models/users');
+const examModel = require('../models/exam');
+const questionModel = require('../models/question');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -12,14 +14,14 @@ module.exports = {
     login: (req, res, next) => {
         if (req.method == "GET") {
             if (req.isAuthenticated()) {
-                res.redirect('/');
+                return res.redirect('/');
             }
             else{
-                res.render('pages/login', {
+                return res.render('pages/login', {
                     title: 'Đăng nhập',
                     message: req.flash(),
                     isLogged: req.isAuthenticated(),
-                    user: req.isAuthenticated()?findUserbyId(req.user.id):{}
+                    user: req.isAuthenticated()?findUserbyId(req.user._id):{}
                 });  
             }
                 
@@ -36,7 +38,7 @@ module.exports = {
             else res.render('pages/signup', { 
                 title: 'Đăng ký tài khoản' ,
                 isLogged:req.isAuthenticated(),
-                user: req.isAuthenticated()?findUserbyId(req.user.id):{}
+                user: req.isAuthenticated()?findUserbyId(req.user._id):{}
             });
         }
         else if (req.method == "POST") {
@@ -50,47 +52,37 @@ module.exports = {
     },
     chooseExam: (req, res) => {
         if (req.method == "GET") {
-            // lấy hết mã đề có trong DB đổ ra page
-            const listExams = [
-                {
-                    eid: "125",
-                    question: 40,
-                },
-                {
-                    eid: "146",
-                    question: 25,
-                },
-                {
-                    eid: "345",
-                    question: 40,
-                },
-                {
-                    eid: "567",
-                    question: 25,
-                },
-                {
-                    eid: "128",
-                    question: 40,
-                },
-                {
-                    eid: "465",
-                    question: 25,
-                },
-            ]
-            res.render('pages/select-exam', {
-                title: 'Chọn đề thi',
-                isLogged: req.isAuthenticated(),
-                listExams: listExams,
-                user: req.isAuthenticated()?findUserbyId(req.user.id):{}
-            });
+            examModel.find()
+            .then(listExams=>{
+                res.render('pages/select-exam', {
+                    title: 'Chọn đề thi',
+                    isLogged: req.isAuthenticated(),
+                    listExams: listExams,
+                    user: req.isAuthenticated()?(req.user):{}
+                });
+            })
         }
     },
     exam: (req, res) => {
         if (req.method == "GET") {
             const examId = req.params.eid; // mã đề 
-            console.log("Choose exam code : " + examId);
             // query đề thi thông qua mã đề thi
             //return object chứa các câu hỏi của đề.
+            questionModel.find({eid:examId})
+            .then(listQuestions =>{
+                if (listQuestions){
+                    return res.render('pages/exam', {
+                        title: 'Làm bài thi',
+                        isLogged: req.isAuthenticated(),
+                        listQuestions: listQuestions,
+                        user: req.isAuthenticated()?req.user:{}
+                    });
+                }
+                else {
+                    return res.redirect('/');
+                }
+               
+            })
             const questions = [
                 {
                     "q1": {
@@ -115,11 +107,11 @@ module.exports = {
                     },
                 }
             ]
-            res.render('pages/exam', {
+            return res.render('pages/exam', {
                 title: 'Làm bài thi',
                 isLogged: req.isAuthenticated(),
                 examQuestions: questions,
-                user: req.isAuthenticated()?findUserbyId(req.user.id):{}
+                user: req.isAuthenticated()?req.user:{}
             });
         }
     },
@@ -128,6 +120,6 @@ module.exports = {
         if (req.isAuthenticated()) {
             next();
         }
-        else res.redirect('/users/login');
+        else return res.redirect('/users/login');
     }
 }

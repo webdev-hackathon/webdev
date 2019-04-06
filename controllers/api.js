@@ -1,5 +1,6 @@
 const admiModel = require('../models/admin');
 const examModel = require('../models/exam');
+const questionModel = require('../models/question');
 module.exports = {
     apiCreateExam: (req, res) => {
         const examData = {
@@ -28,7 +29,7 @@ module.exports = {
         const eid = req.params.eid || "";
         examModel.find({ eid: eid })
             .then(exam => {
-                if (exam) return res.send({ exams: exam, success: true });
+                if (exam) return res.send({ exam: exam, success: true });
                 else throw new "Error when read db, check syntax or connection";
             })
             .catch(err => {
@@ -44,5 +45,31 @@ module.exports = {
             .catch(err => {
                 return res.send({ error: err, success: false });
             })
+    },
+    apiAddQuestion: (req, res) => {
+        const questionsArr = req.body.questionsArr;
+        questionsArr.forEach(question => {
+            questionModel.create(question)
+                .then(question => {
+                    if (question)
+                        return res.send({ question: question, success: true });
+                    else throw "Create question error"
+                })
+                .catch(err => {
+                    return res.send({ error: err });
+                });
+        });
+    },
+    apiDeleteExamById:(req,res)=>{
+        const eid = req.params.eid;
+        examModel.deleteOne({eid:eid})
+        .then(ok => {
+            if (ok)
+            return res.send({result:ok,success:true});
+            else return res.send({result:null,success:false});
+        })
+        .catch(err=>{
+            return res.send(err);
+        })
     }
 }

@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 router.route('/login')
   .get(userController.login)
-  .post(userController.login, passport.authenticate('local-login', { failureRedirect: '/users/login', successRedirect: '/users', failureFlash: true }));
+  .post(userController.login, passport.authenticate('local-login', { failureRedirect: '/users/login', successRedirect: '/', failureFlash: true }));
 
 router.route('/signup')
   .get(userController.signup)

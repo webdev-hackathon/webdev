@@ -135,14 +135,14 @@
             </div>
             <div class="modal-body">
                 <div class="card-body card-block">
-                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <form>
 
                         <div class="row form-group">
                             <div class="col col-md-3">
                                 <label for="text-input" class=" form-control-label">Mã đề</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="text-input" name="text-input" placeholder="Mã đề thi"
+                                <input type="text" id="eid" name="text-input" placeholder="Mã đề thi"
                                     class="form-control">
                             </div>
                         </div>
@@ -151,7 +151,7 @@
                                 <label for="text-input" class=" form-control-label">Tên đề</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="text-input" name="text-input"
+                                <input type="text" id="ename" name="text-input"
                                     placeholder="Tên đề thi" class="form-control">
                             </div>
                         </div>
@@ -160,7 +160,7 @@
                                 <label for="textarea-input" class=" form-control-label">Mô tả</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <textarea name="textarea-input" id="textarea-input" rows="9"
+                                <textarea name="textarea-input" id="edescription" rows="9"
                                     placeholder="Mô tả đề thi" class="form-control"></textarea>
                             </div>
                         </div>
@@ -169,10 +169,10 @@
                                 <label for="select" class=" form-control-label">Trạng thái</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <select name="select" id="select" class="form-control">
+                                <select name="select" id="estatus" class="form-control">
                                     <option value="0">Vui lòng chọn</option>
-                                    <option value="approved">Approved</option>
-                                    <option value="denied">Denied</option>
+                                    <option value="true">Approved</option>
+                                    <option value="false">Denied</option>
                                 </select>
                             </div>
                         </div>
@@ -185,19 +185,19 @@
                                 <div class="form-check">
                                     <div class="radio">
                                         <label for="radio1" class="form-check-label ">
-                                            <input type="radio" id="radio1" name="radios" value="option1"
+                                            <input type="radio" id="elevel1" name="radios" value="Dễ"
                                                 class="form-check-input">Dễ
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label for="radio2" class="form-check-label ">
-                                            <input type="radio" id="radio2" name="radios" value="option2"
+                                            <input type="radio" id="elevel2" name="radios" value="Trung Bình"
                                                 class="form-check-input">Trung Bình
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label for="radio3" class="form-check-label ">
-                                            <input type="radio" id="radio3" name="radios" value="option3"
+                                            <input type="radio" id="elevel3" name="radios" value="Khó"
                                                 class="form-check-input">Khó
                                         </label>
                                     </div>
@@ -209,7 +209,7 @@
                                 <label for="text-input" class=" form-control-label">Số lượng câu hỏi</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="number" id="text-input" name="text-input"
+                                <input type="number" id="eqtyQuestion" name="text-input"
                                     placeholder="Số lượng câu hỏi" class="form-control">
                             </div>
                         </div>
@@ -218,14 +218,14 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button id="" type="button" class="btn btn-primary">Confirm</button>
+                <button id="addExam" type="button" onclick="addExam()" class="btn btn-primary">Confirm</button>
             </div>
         </div>
     </div>
 </div>
     <script src="/components/jquery/dist/jquery.min.js"></script>
     <script src="/components/bootstrap-4.1/bootstrap.min.js"></script>
-
+    <script src="/js/exam-management.js"></script>
     <script src="/js/web-adminjs.js"></script>
 
 </body>

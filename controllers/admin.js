@@ -45,7 +45,12 @@ module.exports = {
     },
     addQuestion:(req,res,next)=>{
         if (req.method == "GET"){
-            res.render('admin/add-question');
+            const eid = req.params.eid;
+            const qtyQuestion = req.params.qtyQuestion;
+            res.render('admin/add-question',{
+                eid:eid,
+                qtyQuestion:qtyQuestion
+            });
         }
         else next();
     }

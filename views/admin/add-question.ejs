@@ -25,7 +25,7 @@
                 <div class="logo-area show-desktop-only">
                     <a href="./index.html">
                         <div class="logo">
-                            <img src="./assets/img/resources/logo.png" alt="">
+                            <img src="/img/resources/logo.png" alt="">
                         </div>
                         <!-- <div class="web-name noselect">
                             Kỳ thi Hương Quốc gia
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="card-body" style="background-color: #F2E7D3">
                                     <div id="question-place" class="container-fluid">
-
+                                        <h1> <%=eid%> </h1>
                                     </div>
                                 </div>
                             </div>
@@ -100,9 +100,9 @@
     </div>
     <script src="/components/jquery/dist/jquery.min.js"></script>
     <script src="components/bootstrap-4.1/bootstrap.min.js"></script>
-
+    
     <script src="/js/question.js"></script>
-
+    <script >window.onload = addQuestion("<%=eid%>")</script>
     <script src="/js/web-adminjs.js"></script>
 </body>
 <footer>
