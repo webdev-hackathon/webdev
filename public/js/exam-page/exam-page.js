@@ -44,187 +44,188 @@ function countDown() {
         });
 }
 
-obj = {
-    question: "1 loại trang phục truyền thống của Nhật Bản là?",
-    type: "",
-    url: "",
-    choice: [ 
-            "Kimono",
-            "Hanbock",
-            "Docomo",
-            "Kinomo",
-    ],
-    answer: "Kinomo" 
-};
-questions = [
-    {
-        question: "What HTML stands for?",
-        type: "",
-        url: "",
-        choice: [ 
-            "Hypertext Markup Language",
-            "Hypertext Makeup Language",
-            "Hollyshit Markup Language",
-            "Hypertext Makeup Layout",
-        ],
-        answer: "Hypertext Markup Language"      
-    },
+// obj = {
+//     question: "1 loại trang phục truyền thống của Nhật Bản là?",
+//     type: "",
+//     url: "",
+//     choice: [ 
+//             "Kimono",
+//             "Hanbock",
+//             "Docomo",
+//             "Kinomo",
+//     ],
+//     answer: "Kinomo" 
+// };
+// questions = [
+//     {
+//         question: "What HTML stands for?",
+//         type: "",
+//         url: "",
+//         choice: [ 
+//             "Hypertext Markup Language",
+//             "Hypertext Makeup Language",
+//             "Hollyshit Markup Language",
+//             "Hypertext Makeup Layout",
+//         ],
+//         answer: "Hypertext Markup Language"      
+//     },
 
-    {
-        question: "Đây là đâu?",
-        type: "image",
-        url: "./assets/questions/01/5_khuevancac.jpg",
-        choice: [ 
-            "Trái đất",
-            "Mặt trời",
-            "Sao hỏa",
-            "Thiên hà khác",
-        ],
-        answer: "Trái đất"      
-    },
+//     {
+//         question: "Đây là đâu?",
+//         type: "image",
+//         url: "./assets/questions/01/5_khuevancac.jpg",
+//         choice: [ 
+//             "Trái đất",
+//             "Mặt trời",
+//             "Sao hỏa",
+//             "Thiên hà khác",
+//         ],
+//         answer: "Trái đất"      
+//     },
 
-    {
-        question: "Kết quả phép tính 1 + 1 = ... là?",
-        type: "",
-        url: "",
-        choice: [ 
-            "2",
-            "1",
-            "0",
-            "3",
-        ],
-        answer: "2"      
-    },
+//     {
+//         question: "Kết quả phép tính 1 + 1 = ... là?",
+//         type: "",
+//         url: "",
+//         choice: [ 
+//             "2",
+//             "1",
+//             "0",
+//             "3",
+//         ],
+//         answer: "2"      
+//     },
 
-    {
-        question: "Nhạc sĩ nào sáng tác Tiến Quân Ca?",
-        type: "",
-        url: "",
-        choice: [ 
-            "Phạm Tuyên",
-            "Văn Cao",
-            "Hồ Chí Minh",
-            "Trịnh Công Sơn",
-        ],
-        answer: "Văn Cao"      
-    },
+//     {
+//         question: "Nhạc sĩ nào sáng tác Tiến Quân Ca?",
+//         type: "",
+//         url: "",
+//         choice: [ 
+//             "Phạm Tuyên",
+//             "Văn Cao",
+//             "Hồ Chí Minh",
+//             "Trịnh Công Sơn",
+//         ],
+//         answer: "Văn Cao"      
+//     },
 
-    {
-        question: "Ngô Quyền Đại thắng quân Nam Hán năm bao nhiêu?",
-        type: "",
-        url: "",
-        choice: [ 
-            "938",
-            "991",
-            "1010",
-            "48",
-        ],
-        answer: "938"      
-    },
+//     {
+//         question: "Ngô Quyền Đại thắng quân Nam Hán năm bao nhiêu?",
+//         type: "",
+//         url: "",
+//         choice: [ 
+//             "938",
+//             "991",
+//             "1010",
+//             "48",
+//         ],
+//         answer: "938"      
+//     },
 
-    {
-        question: "1 loại trang phục truyền thống của Nhật Bản là?",
-        type: "",
-        url: "",
-        choice: [ 
-            "Kimono",
-            "Hanbock",
-            "Docomo",
-            "Kinomo",
-        ],
-        answer: "Kinomo"      
-    },
+//     {
+//         question: "1 loại trang phục truyền thống của Nhật Bản là?",
+//         type: "",
+//         url: "",
+//         choice: [ 
+//             "Kimono",
+//             "Hanbock",
+//             "Docomo",
+//             "Kinomo",
+//         ],
+//         answer: "Kinomo"      
+//     },
 
-    {
-        question: "I like reading books .........tell about peoples and their cultures.",
-        type: "",
-        url: "",
-        choice: [ 
-            "which",
-            "whom",
-            "whose",
-            "who",
-        ],
-        answer: "which"      
-    },
+//     {
+//         question: "I like reading books .........tell about peoples and their cultures.",
+//         type: "",
+//         url: "",
+//         choice: [ 
+//             "which",
+//             "whom",
+//             "whose",
+//             "who",
+//         ],
+//         answer: "which"      
+//     },
 
-    {
-        question: "The house was too expensive, .........we couldn’t afford to buy it.",
-        type: "",
-        url: "",
-        choice: [ 
-            "however",
-            "but",
-            "because",
-            "so",
-        ],
-        answer: "so"      
-    },
+//     {
+//         question: "The house was too expensive, .........we couldn’t afford to buy it.",
+//         type: "",
+//         url: "",
+//         choice: [ 
+//             "however",
+//             "but",
+//             "because",
+//             "so",
+//         ],
+//         answer: "so"      
+//     },
 
-    {
-        question: "_____________advances in computing and telecommunications have reduced the need for many people to travel to work.",
-        type: "",
-        url: "",
-        choice: [ 
-            "Technology",
-            "Technological",
-            "Technologist",
-            "Technologically",
-        ],
-        answer: "Technological"      
-    },
-    {
-        question: "Hãy cho biết đây là tiếng kêu của con vật nào?",
-        type: "audio",
-        url: "./assets/questions/01/assets-test/horse.mp3",
-        choice: [ 
-            "Ngựa",
-            "Mèo",
-            "Chó",
-            "Gà",
-        ],
-        answer: "Antman & Thanos"      
-    },
+    // {
+    //     question: "_____________advances in computing and telecommunications have reduced the need for many people to travel to work.",
+    //     type: "",
+    //     url: "",
+    //     choice: [ 
+    //         "Technology",
+    //         "Technological",
+    //         "Technologist",
+    //         "Technologically",
+    //     ],
+    //     answer: "Technological"      
+    // },
+//     {
+//         question: "Hãy cho biết đây là tiếng kêu của con vật nào?",
+//         type: "audio",
+//         url: "./assets/questions/01/assets-test/horse.mp3",
+//         choice: [ 
+//             "Ngựa",
+//             "Mèo",
+//             "Chó",
+//             "Gà",
+//         ],
+//         answer: "Antman & Thanos"      
+//     },
 
-    {
-        question: "Đặc điểm nào sau đây không đúng với vị trí địa lí của nước ta?",
-        type: "",
-        url: "",
-        choice: [ 
-            "Nằm ở rìa phía đông của bản đảo Đông Dương, gần trung tâm khu vực Đông Nam Á.",
-            "Tiếp giáp với Trung Quốc và tất cả các nước của khu vực Đông Nam Á.",
-            "Vừa gắn liền với lục địa Á - Âu, vừa tiếp giáp với Biển Đông.",
-            "Nằm trong khu vực múi giờ số 7.",
-        ],
-        answer: "Tiếp giáp với Trung Quốc và tất cả các nước của khu vực Đông Nam Á."      
-    },
-    {
-        question: "Trong video chế dưới đây, có 2 nhân vật nổi tiếng nào?",
-        type: "video",
-        url: "./assets/questions/01/assets-test/agn4nxW_460svvp9.webm",
-        choice: [ 
-            "Antman & Thanos",
-            "Antman & Hulk",
-            "Ironman & Thanos",
-            "Batman & Thanos",
-        ],
-        answer: "Antman & Thanos"      
-    },
+//     {
+//         question: "Đặc điểm nào sau đây không đúng với vị trí địa lí của nước ta?",
+//         type: "",
+//         url: "",
+//         choice: [ 
+//             "Nằm ở rìa phía đông của bản đảo Đông Dương, gần trung tâm khu vực Đông Nam Á.",
+//             "Tiếp giáp với Trung Quốc và tất cả các nước của khu vực Đông Nam Á.",
+//             "Vừa gắn liền với lục địa Á - Âu, vừa tiếp giáp với Biển Đông.",
+//             "Nằm trong khu vực múi giờ số 7.",
+//         ],
+//         answer: "Tiếp giáp với Trung Quốc và tất cả các nước của khu vực Đông Nam Á."      
+//     },
+//     {
+//         question: "Trong video chế dưới đây, có 2 nhân vật nổi tiếng nào?",
+//         type: "video",
+//         url: "./assets/questions/01/assets-test/agn4nxW_460svvp9.webm",
+//         choice: [ 
+//             "Antman & Thanos",
+//             "Antman & Hulk",
+//             "Ironman & Thanos",
+//             "Batman & Thanos",
+//         ],
+//         answer: "Antman & Thanos"      
+//     },
 
-    {
-        question: "Vùng có mật độ dân số cao nhất nước ta là?",
-        type: "",
-        url: "",
-        choice: [ 
-            "Đồng bằng sông Hồng",
-            "Đồng bằng sông Cửu long",
-            "Đông Nam Bộ",
-            "Duyên hải miền trung",
-        ],
-        answer: "Đồng bằng sông Hồng"      
-    },
-];
-
+//     {
+//         question: "Vùng có mật độ dân số cao nhất nước ta là?",
+//         type: "",
+//         url: "",
+//         choice: [ 
+//             "Đồng bằng sông Hồng",
+//             "Đồng bằng sông Cửu long",
+//             "Đông Nam Bộ",
+//             "Duyên hải miền trung",
+//         ],
+//         answer: "Đồng bằng sông Hồng"      
+//     },
+// ];
+const eid = $('input[type="hidden"]').val();
+const questions = getQuestion(eid);
 tempHTML = '<div id="Q6" class="question-item">' +
                 '<div class="question">' +
                     '<span class="question-numer">Câu 6: </span>' +
@@ -365,3 +366,16 @@ function checkedFlag(order) {
     console.log('added');
 }
 
+function getQuestion(eid){
+    $.ajax({
+        url:"http://localhost:3000/api/question"+eid,
+        method:"get",
+        success:(res)=>{
+            console.log(res);
+            return res;
+        },
+        error:(err)=>{
+            console.log(err);
+        }
+    })
+}

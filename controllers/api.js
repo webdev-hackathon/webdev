@@ -48,8 +48,18 @@ module.exports = {
             })
     },
     apiAddQuestion: (req, res) => {
-        const questionsArr = req.body.questionsArr;
+        const questionsArr = req.body;
+        // questionModel.create(question)
+        //         .then(question => {
+        //             if (question)
+        //                 return res.send({ question: question, success: true });
+        //             else throw "Create question error"
+        //         })
+        //         .catch(err => {
+        //             return res.send({ error: err });
+        //         });
         questionsArr.forEach(question => {
+            console.log(question);
             questionModel.create(question)
                 .then(question => {
                     if (question)
@@ -71,6 +81,19 @@ module.exports = {
         })
         .catch(err=>{
             return res.send(err);
+        })
+    },
+    apiReadQuestion:(req,res)=>{
+        const eid = req.params.eid;
+        questionModel.find({eid:eid})
+        .then(questions=>{
+            if (questions){
+                return res.send(questions);
+            }
+            else res.send({err:"K co question"});
+        })
+        .catch(err=>{
+            return res.send({error:err});
         })
     }
 }

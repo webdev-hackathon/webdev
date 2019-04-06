@@ -75,7 +75,8 @@ module.exports = {
                         title: 'Làm bài thi',
                         isLogged: req.isAuthenticated(),
                         listQuestions: listQuestions,
-                        user: req.isAuthenticated()?req.user:{}
+                        user: req.isAuthenticated()?req.user:{},
+                        made:examId
                     });
                 }
                 else {
@@ -111,7 +112,8 @@ module.exports = {
                 title: 'Làm bài thi',
                 isLogged: req.isAuthenticated(),
                 examQuestions: questions,
-                user: req.isAuthenticated()?req.user:{}
+                user: req.isAuthenticated()?req.user:{},
+                made:examId
             });
         }
     },
